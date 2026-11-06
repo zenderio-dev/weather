@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="android.view.View" />
+        <variable name="weather" type="com.example.currentweatherdatabinding.WeatherUi" />
+        <variable name="status" type="String" />
+        <variable name="loading" type="boolean" />
+        <variable name="hasWeather" type="boolean" />
+    </data>
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/weather_title" android:textSize="28sp" android:textStyle="bold" />
+            <EditText android:id="@+id/cityInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:minHeight="48dp" android:hint="@string/city_hint" android:inputType="textCapWords" android:singleLine="true" android:enabled="@{!loading}" />
+            <Button android:id="@+id/refreshButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/refresh" android:enabled="@{!loading}" />
+            <ProgressBar android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:visibility="@{loading ? View.VISIBLE : View.GONE}" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="@{status}" android:accessibilityLiveRegion="polite" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:orientation="vertical" android:gravity="center_horizontal" android:visibility="@{hasWeather ? View.VISIBLE : View.GONE}">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@{weather.city}" android:textSize="24sp" android:textStyle="bold" />
+                <ImageView android:layout_width="80dp" android:layout_height="80dp" android:src="@{weather.cloudIcon}" android:contentDescription="@string/weather_icon" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@{weather.temperature}" android:textSize="48sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@{weather.description}" android:textSize="20sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="@{weather.feelsLike}" android:textSize="18sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@{weather.humidity}" android:textSize="18sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@{weather.clouds}" android:textSize="18sp" />
+                <ImageView android:layout_width="40dp" android:layout_height="40dp" android:layout_marginTop="16dp" android:src="@drawable/ic_wind" android:rotation="@{weather.windRotation}" android:contentDescription="@string/wind_icon" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@{weather.wind}" android:textSize="18sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>

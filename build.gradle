@@ -1,0 +1,4 @@
+// Версия плагина совместима с установленной Android Studio и SDK 37.
+plugins {
+    id 'com.android.application' version '9.4.1' apply false
+}

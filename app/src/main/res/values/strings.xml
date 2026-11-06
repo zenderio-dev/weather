@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Погода</string>
+    <string name="city_hint">Город, например Иркутск</string>
+    <string name="refresh">Обновить</string>
+    <string name="weather_title">Погода сейчас</string>
+    <string name="weather_icon">Облачность</string>
+    <string name="wind_icon">Направление ветра</string>
+</resources>
